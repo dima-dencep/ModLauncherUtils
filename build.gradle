@@ -1,0 +1,52 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "8.1.1" apply false
+    id "io.github.p03w.machete" version "2.+" apply false
+}
+
+subprojects {
+    apply plugin: "io.github.p03w.machete"
+    apply plugin: "java"
+
+    dependencies {
+        implementation project(":api")
+
+        implementation "org.spongepowered:mixin:0.8.4"
+        implementation "org.apiguardian:apiguardian-api:${rootProject.apiguardian_version}"
+    }
+}
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: "maven-publish"
+
+    version = rootProject.version
+    group = rootProject.maven_group
+
+    repositories {
+        maven {
+            name = 'MinecraftForge'
+            url = 'https://maven.minecraftforge.net/'
+        }
+        maven {
+            name = 'Mojang'
+            url = 'https://libraries.minecraft.net/'
+        }
+        maven { url "https://maven.fabricmc.net/" }
+        mavenCentral()
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+        options.release = 16
+    }
+
+    java {
+        withSourcesJar()
+    }
+
+    publishing {
+        repositories {
+            // Add repositories to publish to here.
+        }
+    }
+}

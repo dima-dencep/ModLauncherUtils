@@ -1,0 +1,36 @@
+plugins {
+    id "com.github.johnrengelman.shadow"
+}
+
+archivesBaseName = "ModLauncherUtils-Api"
+
+configurations {
+    shadow
+    compileClasspath.extendsFrom shadow
+    runtimeClasspath.extendsFrom shadow
+}
+
+dependencies {
+    shadow project(":common")
+
+    implementation "cpw.mods:securejarhandler:0.9.54"
+    implementation "cpw.mods:modlauncher:9.0.7"
+}
+
+shadowJar {
+    configurations = [project.configurations.shadow]
+}
+
+jar {
+    archiveClassifier.set "dev"
+
+    finalizedBy shadowJar
+}
+
+publishing {
+    publications {
+        mavenCommon(MavenPublication) {
+            from components.java
+        }
+    }
+}

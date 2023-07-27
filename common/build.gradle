@@ -1,0 +1,12 @@
+archivesBaseName = "ModLauncherUtils-Core"
+
+dependencies {
+}
+
+publishing {
+    publications {
+        mavenCommon(MavenPublication) {
+            from components.java
+        }
+    }
+}

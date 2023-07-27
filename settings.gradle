@@ -1,0 +1,15 @@
+pluginManagement {
+    repositories {
+        maven { url "https://maven.fabricmc.net/" }
+        maven { url "https://maven.neoforged.net/" }
+        maven { url "https://maven.architectury.dev/" }
+        gradlePluginPortal()
+    }
+}
+
+include("api")
+
+include("common")
+
+include("modlauncher-10")
+// include("modlauncher-9")
