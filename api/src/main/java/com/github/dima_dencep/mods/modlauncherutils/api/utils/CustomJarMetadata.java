@@ -43,13 +43,12 @@ public class CustomJarMetadata implements JarMetadata {
                             continue;
                         }
 
-                        //Log.info(LOG_CATEGORY, "Found existing module with name %s, renaming %s to match.", otherModuleName, this.delegate.name());
+                        Initializer.LOGGER.info("Found existing module with name %s, renaming %s to match.", otherModuleName, this.delegate.name());
                         return otherModuleName;
                     }
                 }
             } catch (Throwable t) {
-                //Log.error(LOG_CATEGORY, "Exception occurred while trying to self-rename module %s: %s", this.delegate.name(), t);
-                t.printStackTrace();
+                Initializer.LOGGER.error("Exception occurred while trying to self-rename module %s: %s", this.delegate.name(), t);
             }
         }
 

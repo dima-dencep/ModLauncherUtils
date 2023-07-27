@@ -4,14 +4,17 @@ plugins {
 }
 
 subprojects {
-    apply plugin: "io.github.p03w.machete"
-    apply plugin: "java"
+    // apply plugin: "io.github.p03w.machete"
+    apply plugin: "java-library"
 
     dependencies {
-        implementation project(":api")
+        compileOnly "org.apiguardian:apiguardian-api:${rootProject.apiguardian_version}"
 
-        implementation "org.spongepowered:mixin:0.8.4"
-        implementation "org.apiguardian:apiguardian-api:${rootProject.apiguardian_version}"
+        compileOnly 'org.apache.logging.log4j:log4j-api:2.20.0'
+
+        compileOnly "cpw.mods:securejarhandler:2.1.6"
+        compileOnly "org.spongepowered:mixin:0.8.4"
+        compileOnly "cpw.mods:modlauncher:10.0.8"
     }
 }
 

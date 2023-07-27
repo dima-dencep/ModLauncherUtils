@@ -86,6 +86,7 @@ public interface SecureJarHacks {
     /**
      * @deprecated Was created to simulate {@link LaunchClassLoader#addURL(URL)}.
      */
+    @Deprecated
     @API(status = API.Status.DEPRECATED)
     default void addURL(URL url) throws Exception {
         addToClassPath(Paths.get(url.toURI()));

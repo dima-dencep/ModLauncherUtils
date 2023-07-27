@@ -4,6 +4,8 @@ import com.github.dima_dencep.mods.modlauncherutils.api.hacks.MixinHacks;
 import com.github.dima_dencep.mods.modlauncherutils.api.hacks.ModLauncherHacks;
 import com.github.dima_dencep.mods.modlauncherutils.api.hacks.SecureJarHacks;
 import com.github.dima_dencep.mods.modlauncherutils.api.reflection.ReflectProvider;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apiguardian.api.API;
 
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ import java.util.List;
 
 @API(status = API.Status.STABLE)
 public class Initializer {
+    public static final Logger LOGGER = LogManager.getFormatterLogger("ModLauncherUtils");
     private static final List<ReflectProvider> reflectProviders = new ArrayList<>();
     protected static Initializer INSTANCE;
     private ModLauncherHacks modLauncherHacks;

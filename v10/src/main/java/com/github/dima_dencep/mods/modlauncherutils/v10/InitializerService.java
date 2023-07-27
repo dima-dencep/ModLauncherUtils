@@ -2,12 +2,16 @@ package com.github.dima_dencep.mods.modlauncherutils.v10;
 
 import com.github.dima_dencep.mods.modlauncherutils.api.Initializer;
 import com.github.dima_dencep.mods.modlauncherutils.hacks.MixinHackImpl;
+import com.github.dima_dencep.mods.modlauncherutils.providers.UnsafeImpl;
 import com.github.dima_dencep.mods.modlauncherutils.v10.hacks.HacksImpl;
+import cpw.mods.modlauncher.Launcher;
+import cpw.mods.modlauncher.TransformStore;
 import cpw.mods.modlauncher.api.IEnvironment;
 import cpw.mods.modlauncher.api.ITransformationService;
 import cpw.mods.modlauncher.api.ITransformer;
 import org.apiguardian.api.API;
 
+import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
@@ -23,7 +27,10 @@ public class InitializerService extends Initializer implements ITransformationSe
      */
     @API(status = API.Status.INTERNAL)
     public InitializerService() {
+        LOGGER.info("Hello!");
         INSTANCE = this;
+
+        addReflectProvider(new UnsafeImpl());
 
         setMixinHacks(new MixinHackImpl());
 

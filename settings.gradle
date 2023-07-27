@@ -11,5 +11,5 @@ include("api")
 
 include("common")
 
-include("modlauncher-10")
-// include("modlauncher-9")
+include("v10")
+// include("v9")

@@ -6,15 +6,11 @@ archivesBaseName = "ModLauncherUtils-v10"
 
 configurations {
     shadow
-    compileClasspath.extendsFrom shadow
-    runtimeClasspath.extendsFrom shadow
+    api.extendsFrom shadow
 }
 
 dependencies {
     shadow project(":common")
-
-    implementation "cpw.mods:securejarhandler:2.1.6"
-    implementation "cpw.mods:modlauncher:10.0.8"
 }
 
 shadowJar {
@@ -22,14 +18,12 @@ shadowJar {
 }
 
 jar {
-    archiveClassifier.set "dev"
-
     finalizedBy shadowJar
 }
 
 publishing {
     publications {
-        mavenCommon(MavenPublication) {
+        maven(MavenPublication) {
             from components.java
         }
     }
