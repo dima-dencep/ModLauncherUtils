@@ -25,7 +25,7 @@ public class ReflectionImpl implements ReflectProvider {
     @Override
     @API(status = API.Status.DEPRECATED)
     public boolean isReady() {
-        return false;
+        return true;
     }
 
     /**
